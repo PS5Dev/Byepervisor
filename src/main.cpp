@@ -31,6 +31,7 @@ extern "C"
     int sceKernelSleep(int secs);
     int sceKernelLoadStartModule(char *name, size_t argc, const void *argv, uint32_t flags, void *unk, int *res);
     int __sys_is_development_mode();
+    int sceSystemStateMgrEnterStandby(void);
 }
 
 void dump_kernel_to_client(int client)
@@ -128,6 +129,9 @@ int main()
             kernel_copyin(&pte, pte_addr, sizeof(pte));
         }
     }
+S
+    // auto suspend
+    sceSystemStateMgrEnterStandby();
 
     // Check if this is a resume state or not, if it's not, prompt for restart and exit
     if (kernel_read4(kdlsym(KERNEL_SYM_DATA_CAVE)) != 0x1337) {
