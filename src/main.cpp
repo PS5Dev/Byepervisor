@@ -129,7 +129,7 @@ int main()
             kernel_copyin(&pte, pte_addr, sizeof(pte));
         }
     }
-S
+
     // auto suspend
     sceSystemStateMgrEnterStandby();
 
