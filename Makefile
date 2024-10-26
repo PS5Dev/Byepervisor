@@ -9,7 +9,7 @@ endif
 
 ELF := byepervisor.elf
 
-CFLAGS := -std=c++11 -Wall -Werror -g -I./include -DHEN_BIN_PATH="\"hen/hen.bin\""
+CFLAGS := -std=c++11 -Wall -Werror -g -I./include -DHEN_BIN_PATH="\"hen/hen.bin\"" -lSceSystemService
 
 all: $(ELF)
 
